@@ -1,0 +1,375 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+  
+/*========== Colors ==========*/
+--nav-color: #3d2205;
+--hover-color: #674118;;
+--text-color: #DFD7BF;
+--text-color1: #c4a074;
+--body-color: #F5F5F5;
+
+/*========== Font and typography ==========*/
+/*.5rem = 8px | 1rem = 16px ...*/
+--body-font: "Montserrat", sans-serif;
+--family-font: 'Poppins', sans-serif;
+--normal-font-size: .938rem;
+
+/*========== Font weight ==========*/
+--font-regular: 400;
+--font-semi-bold: 600;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1024px) {
+:root {
+  --normal-font-size: 1rem;
+}
+}
+  
+/*=============== BASE ===============*/
+* {
+box-sizing: border-box;
+text-decoration: none;
+padding: 0;
+margin: 0;
+font-family: var(--family-font);
+}
+/* ----- SMOOTH SCROLL ----- */
+html{
+  scroll-behavior: smooth;
+}
+/* ----- CHANGE THE SCROLL BAR DESIGN ----- */
+::-webkit-scrollbar{
+  width: 10px;
+  border-radius: 25px;
+}
+::-webkit-scrollbar-track{
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb{
+  background: #ccc;
+  border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: #bbb;
+}
+
+body {
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  list-style: none;
+  padding: 15px 20px;
+}
+/*=============== REUSABLE CSS CLASSES and ID ===============*/
+nav {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between; /* Ensures space between items */
+  align-items: center; /* Vertically centers the items */
+  width: 100%;
+  height: 70px;
+  background: #3d2205;
+  padding: 0 20px;
+  transition: .3s;
+  z-index: 100;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px hsla(222, 32%, 8%, 0.3);
+  transform: scale(0.9);
+}
+/*=============== HEADER ===============*/
+#header {
+  position: fixed;
+  max-width: none;
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/*=============== NAV ===============*/
+.nav-logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  color: var(--text-color-second);
+  flex: 1; /* Pushes the logo to the left */
+  text-align: left; /* Align text/logo content to the left */
+}
+.nav-name{
+  text-align: left;
+}
+.nav-menu, .nav_menu_list {
+  display: flex;
+  list-style: none;
+}
+
+.nav-menu .nav_list{
+  list-style: none;
+  position: relative;
+}
+.nav-link{
+  text-decoration: none;
+  color: var(--text-color-second);
+  font-weight: 500;
+  padding: 0 20px;
+  margin-inline: 5px;
+}
+/* Hamburger menu for small screens */
+.nav-menu-btn {
+  display: none;
+  margin-left: 10px;
+}
+
+.nav-menu-btn i {
+  font-size: 24px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.active-link{
+  position: relative;
+  color: var(--text-color1);
+}
+.active-link::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  transform: translate(-50%, -50%);
+  width: 75px;
+  height: 4px;
+  background: var(--text-color);
+  border-radius: 50px;
+}
+.log-site-btn {
+  flex: 1; /* Pushes the button to the right */
+  display: flex;
+  justify-content: flex-end; /* Aligns items to the right */
+  align-items: center; /* Vertically centers the button */
+  gap: 20px;
+  color: var(--text-color-second);
+}
+.sign-up-button{
+  text-decoration: none;
+  color: var(--text-color-second);
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+.sign-up-button:hover{
+  color: var(--text-color1);
+}
+.sign-up-button h6{
+  font-size: 16px;
+}
+/* Hide navigation links on smaller screens */
+@media screen and (max-width: 1118px) {
+  body{
+    overflow-x: hidden;
+  }
+  #header {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--nav-color);
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    padding: 14px;
+    border-radius: 0 0 10px 10px;
+    z-index: 100;
+  }
+  .active-link{
+    position: relative;
+    color: var(--text-color1);;
+  }
+  .active-link::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(25%, -50%);
+    width: 54px;
+    height: 4px;
+    background: var(--text-color);
+    border-radius: 50px;
+  }
+
+  .nav-menu.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-menu-btn {
+    display: block;
+  }
+  .nav-menu-btn .fa-bars:hover{
+    color: var(--text-color1);
+  }
+  .sign-up-button i{
+    font-size: 25px;
+  }
+  .sign-up-button i:hover{
+    color: var(--text-color1);
+  }
+  .sign-up-button h6{
+    display: none;
+  }
+}
+ /* For large devices */
+@media screen and (min-width: 1118px) {
+  /*Home in large device */
+  #header {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 18px;
+  }
+}
+
+.about-us {
+    text-align: center;
+    margin-top: 110px;
+}
+
+.about-us h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    background: linear-gradient(
+    to left,
+    #c4a074 20%,
+    #635d57 30%,
+    #3d2205 70%,
+    #674118 80%
+);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+background-size: 500% auto;
+animation: textShine 5s ease-in-out infinite alternate;
+}
+@keyframes textShine {
+0% {
+    background-position: 0% 50%;
+}
+100% {
+    background-position: 100% 50%;
+}
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.seigi, .claire {
+    width: 40%;
+    text-align: left;
+}
+
+.seigi h3, .claire h3 {
+    font-size: 24px;
+    color: #3e2723;
+    margin-bottom: 20px;
+}
+
+.seigi p, .claire p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d2b48c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #b2947b;
+}
+
+.image img {
+    max-width: 110%;
+    height: auto;
+    margin-left: 5px;
+}
+
+  @media (max-width: 800px) {
+    .active-link{
+      position: relative;
+      color: var(--text-color1);
+      transition: .3;
+    }
+    .active-link::after{
+      content: '';
+      position: absolute;
+      left: 12%;
+      bottom: 0;
+      transform: translate(8%, 100%);
+      width: 60px;
+      height: 4px;
+      background: var(--text-color);
+      border-radius: 50px;
+    }
+      .content-container {
+          flex-direction: column;
+          text-align: center;
+      }
+
+      .seigi, .claire {
+          width: 100%;
+          margin-bottom: 30px;
+      }
+
+      .image {
+          margin-bottom: 30px;
+      }
+  }
+  @media (max-width: 1116px){
+    .active-link{
+      position: relative;
+      color: var(--text-color1);
+      transition: .3;
+    }
+    .active-link::after{
+      content: '';
+      position: absolute;
+      left: 4%;
+      bottom: -19%;
+      transform: translate(22%, 36%);
+      width: 72px;
+      height: 4px;
+      background: var(--text-color);
+      border-radius: 50px;
+    }
+  }
